@@ -12,10 +12,10 @@
         <form method="post">
             <h3>登入頁面</h3>
             <div>
-                <input type="text" name="email" value="" placeholder="請輸入 EMAIL">
+                <input type="text" id="email" name="email" value="" placeholder="請輸入 EMAIL">
             </div>
             <div>
-                <input type="password" name="password" value="" placeholder="請輸入密碼">
+                <input type="password" id="password" name="password" value="" placeholder="請輸入密碼">
             </div>
             <div>
                 <button type="submit">登入</button>
@@ -23,5 +23,21 @@
         </form>
     </div>
     <script src="/js/jquery-3.3.1.min.js"></script>
+    <script>
+    $('form').submit(function(event) {
+        event.preventDefault()
+        if ( $('#email').val() == '' ) {
+            alert('請輸入 EMAIL')
+            $('#email').focus()
+            return false
+        }
+
+        if ( $('#email').val() == 'test@gmail.com' && $('#password').val() == 'test1234' ) {
+            alert('登入成功！')
+        } else {
+            alert('帳密錯誤！')
+        }
+    })
+    </script>
 </body>
 </html>
