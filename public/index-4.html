@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <style media="screen">
+    body {
+        box-sizing: border-box;
+        margin: 0;
+        min-height: 1000px;
+    }
+    .parallax-window {
+        min-height: 400px;
+        background: transparent;
+    }
+
+    .code {
+        width: 40%;
+        clear: both;
+        height: 200px;
+        background: aliceblue;
+        border-radius: 2px;
+        margin: 12vh 0;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="https://typeitjs.com/" target="_blank">TypeIt 套件</a></li>
+            <li><a href="http://pixelcog.github.io/parallax.js/" target="_blank">視差套件</a></li>
+            <li><a href="https://www.minwt.com/webdesign-dev/html/19104.html" target="_blank">Facebook Messenger 小視窗</a></li>
+            <li><a href="https://introducing-broker.blogspot.com/2015/07/buttons-how-to-make-back-to-top-rocket.html" target="_blank">火箭飛</a></li>
+            <li><a href="http://michalsnik.github.io/aos/" target="_blank">滾動時觸發動畫</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- 視差 -->
+    <div class="parallax-window" data-parallax="scroll" data-image-src="images/login.jpg"></div>
+
+    <!-- 打字效果 -->
+    <style media="screen">
+    #type_words {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        font-size: 24px;
+        background: #000;
+        color: #fff;
+    }
+    </style>
+    <p id="type_words"></p>
+
+    <!-- 視差 -->
+    <div class="parallax-window" data-parallax="scroll" data-image-src="images/maroon5.jpg"></div>
+
+
+    <!-- rocket-to-top -->
+    <style type="text/css">
+    #scrolltop{display:none}
+    #KiseFXrocket{position:fixed;bottom:50px;z-index:7;display:none;overflow: inherit;!important;width:26px;height:48px;right:25px;background:url(http://4.bp.blogspot.com/-Big_8fGwmGI/VaGT3LKkq8I/AAAAAAAAATc/R9ZwxOWC17M/s1600/kisefx.rocket.png) 50% 0 no-repeat;opacity:0;-webkit-transition:visibility .6s cubic-bezier(.6,.04,.98,.335),opacity .6s cubic-bezier(.6,.04,.98,.335),-webkit-transform .6s cubic-bezier(.6,.04,.98,.335);-moz-transition:visibility .6s cubic-bezier(.6,.04,.98,.335),opacity .6s cubic-bezier(.6,.04,.98,.335),-moz-transform .6s cubic-bezier(.6,.04,.98,.335);transition:visibility .6s cubic-bezier(.6,.04,.98,.335),opacity .6s cubic-bezier(.6,.04,.98,.335),transform .6s cubic-bezier(.6,.04,.98,.335)}
+    #KiseFXrocket i{display:block;margin-top:48px;height:14px;background:url(http://4.bp.blogspot.com/-Big_8fGwmGI/VaGT3LKkq8I/AAAAAAAAATc/R9ZwxOWC17M/s1600/kisefx.rocket.png) 50% -48px no-repeat;opacity:.5;-webkit-transition:-webkit-transform .2s;-moz-transition:-moz-transform .2s;transition:transform .2s;-webkit-transform-origin:50% 0;-moz-transform-origin:50% 0;transform-origin:50% 0}
+    #KiseFXrocket:hover{background-position:50% -62px}
+    #KiseFXrocket:hover i{background-position:50% 100%;-webkit-animation:flaming .7s infinite;-moz-animation:flaming .7s infinite;animation:flaming .7s infinite}
+    #KiseFXrocket.showrocket{visibility:visible;opacity:1;border:none;box-shadow: 0 0px 0px rgba(0,0,0,0.0);}
+    #KiseFXrocket.launchrocket{background-position:50% -62px;opacity:0;-webkit-transform:translateY(-800px);-moz-transform:translateY(-800px);-ms-transform:translateY(-800px);transform:translateY(-800px);pointer-events:none}
+    #KiseFXrocket.launchrocket i{background-position:50% 100%;-webkit-transform:scale(1.4,3.2);-moz-transform:scale(1.4,3.2);transform:scale(1.4,3.2)}
+    </style>
+
+    <div class="code" data-aos="fade-right">大家好，</div>
+
+    <div class="code" data-aos="fade-left">我很好！</div>
+
+    <div class="code" data-aos="zoom-out-right">我是認真向上好青年</div>
+
+    <a href="javascript:void(0);" id="KiseFXrocket" class="showrocket"></a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typeit@5.10.0/dist/typeit.min.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script src="js/parallax.js"></script>
+    <script type="text/javascript">
+    new TypeIt('#type_words', {
+        strings: ["This is a great string.", "But here is a better one."],
+        speed: 850,
+        breakLines: false,
+        autoStart: false,
+        loop: true,
+    });
+
+    AOS.init();
+    </script>
+    <script type='text/javascript'>
+    jQuery(window).scroll(function(){jQuery(window).scrollTop()<50?jQuery("#KiseFXrocket").slideUp(500):jQuery("#KiseFXrocket").slideDown(500);var e=jQuery("#ft")[0]?jQuery("#ft")[0]:jQuery(document.body)[0],t=$("KiseFXrocket"),n=(parseInt(document.documentElement.clientHeight),parseInt(document.body.getBoundingClientRect().top),parseInt(e.clientWidth)),r=t.clientWidth;if(1e3>n){var l=parseInt(fetchOffset(e).left);l=r>l?2*l-r:l,t.style.left=n+l+"px"}else t.css("right", 10)}),jQuery("#KiseFXrocket").click(function(){jQuery("html, body").animate({scrollTop:"0px",display:"none"},{duration:600,easing:"linear"});var e=this;this.className+=" launchrocket",setTimeout(function(){e.className="showrocket"},800)});
+    </script>
+</body>
+</html>
